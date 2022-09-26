@@ -48,7 +48,6 @@ if(isset($_SESSION['user_login']))
     }
 }else
 {
-    echo"jkgn";die;
     header('location:user_login.php');
 }    
 ?>

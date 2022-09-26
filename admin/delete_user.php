@@ -1,5 +1,5 @@
 <?php
-include('admin.php');
+include('../user/user.php');
 if(isset($_GET['id']))
 {
     $obj= new user();

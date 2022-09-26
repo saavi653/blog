@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">   
     <title>Document</title>
     <style>
         div{
@@ -13,12 +14,6 @@
             height:auto;
             margin:auto;
             background-color: lightcoral;
-        }
-        body{
-            background-color:lightseagreen;
-        }
-        h1{
-            text-align: center;
         }
         </style>    
 </head>
@@ -40,7 +35,7 @@
 include('admin.php');
 if(isset($_POST['submit']))
 {
-    $obj=new admin($_POST);
-    $obj->login();
+    $obj=new admin();
+    $obj->login($_POST);
 }
 ?>

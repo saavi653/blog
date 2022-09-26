@@ -2,8 +2,8 @@
 include('admin.php');
 if(isset($_SESSION['admin_login']))
 {
-    $obj=new admin($_POST);
-    $record=$obj->view_blog();
+    $obj=new admin();
+    $record=$obj->view_blog($_POST);
     ?>
     <!DOCTYPE html>
     <html lang="en">

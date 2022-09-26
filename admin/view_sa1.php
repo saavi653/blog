@@ -1,7 +1,5 @@
 <?php
 include('admin.php');
-if(isset($_SESSION['admin_login']))
-{
     $obj = new subadmin();
     $data = $obj->view_sa();
     ?> 
@@ -59,10 +57,3 @@ if(isset($_SESSION['admin_login']))
         </table>
         <b ><a href='main.php'>SWITCH TO MAIN PAGE </a></b>
     </html>
-<?php    
-} 
-else
-{
-    header('location:login.php');
-}   
-?>

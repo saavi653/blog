@@ -1,11 +1,12 @@
 <?php
-include('admin.php');
+include('../user/user.php');
 if(isset($_SESSION['admin_login']))
 {
     $obj = new user();
     $data = $obj->view_user();
     ?>
     <html>
+    <link rel="stylesheet" type="text/css" href="style.css">   
     <style>
             table{
                 margin:5px;
@@ -18,14 +19,6 @@ if(isset($_SESSION['admin_login']))
                 padding :20px;
                 font-size: 20px;
                 border:2px solid black;
-            }
-            body{
-                background-color:lightseagreen;
-            }
-            h1{
-                background-color:lightcoral;
-                border:5px solid black;
-                text-align:center;
             }
             a{
                 text-decoration: none;
