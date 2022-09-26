@@ -1,12 +1,9 @@
 <?php
-include('admin.php');
-if (!isset($_SESSION['admin_login'])) 
-{
-    header('location:login.php');
-}
+    include('admin.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +11,7 @@ if (!isset($_SESSION['admin_login']))
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
     <form action="createb.php" method='post'>
         <h1>BLOG</h1>
@@ -23,11 +21,23 @@ if (!isset($_SESSION['admin_login']))
         <textarea name="des" placeholder="type..."></textarea><br><br>
         <input type=submit name=submit>
     </form><br>
-    <b><a href='main.php'>SWITCH TO MAIN PAGE </a></b>
+    <?php
+    if (isset($_SESSION['admin_login'])) 
+    {
+    ?>
+        <b><a href='main.php'>SWITCH TO MAIN PAGE </a></b>
+    <?php
+    } else 
+    {
+    ?>
+        <b><a href='subadmin.php'>SWITCH TO MAIN PAGE </a></b>
+    <?php } ?>
 </body>
+
 </html>
 <?php
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit'])) 
+{
     $obj = new admin();
     $obj->create_blog($_POST);
 }

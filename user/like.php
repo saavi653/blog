@@ -1,7 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['user_login']))
-{
+
     if(isset($_GET['id']))
     {
         $id=$_GET['id'];
@@ -46,8 +45,3 @@ if(isset($_SESSION['user_login']))
             }        
         } 
     }
-}else
-{
-    header('location:user_login.php');
-}    
-?>

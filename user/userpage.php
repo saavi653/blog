@@ -1,7 +1,6 @@
 <?php
 include('../admin/admin.php');
-if(isset($_SESSION['user_login']))
-{
+
     $obj=new admin($_POST);
     $record=$obj->view_blog();
     $obj1=new pdo("mysql:host=localhost;dbname=blog;","root","");
@@ -93,11 +92,5 @@ if(isset($_SESSION['user_login']))
         </table>
     </body>
     </html>
-<?php
-}
-else
-{
-    header('location:user_login.php');
-}
-?>    
+
 

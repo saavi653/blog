@@ -1,5 +1,5 @@
 <?php
-include('../admin/admin.php');
+include('admin.php');
 if(isset($_GET['status']))
 {
     $id=$_GET['id'];

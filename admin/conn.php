@@ -1,5 +1,5 @@
 <?php
-class conn
+class connection
 {
     function conn()
     {   

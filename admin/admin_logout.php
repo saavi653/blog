@@ -1,5 +1,14 @@
 <?php
 session_start();
-unset($_SESSION['admin_login']);
-header("location:login.php");
+if(isset($_SESSION['admin_login']))
+{
+    unset($_SESSION['admin_login']);
+    header("location:login.php");
+}
+else
+{ 
+    unset($_SESSION['sub_a']);
+    header("location:login.php"); 
+    
+}
 ?>

@@ -3,7 +3,9 @@ if (isset($_GET['id']))
 {
     $id = $_GET['id'];
 }
-$con = new pdo("mysql:host=localhost;dbname=blog;", "root", "");
+include('conn.php');
+$obj=new connection();
+$con=$obj->conn();
 $record = $con->query("select * from user where id ='$id'");
 $data = $record->fetchall(pdo::FETCH_ASSOC);
 ?>
@@ -13,17 +15,8 @@ $data = $record->fetchall(pdo::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">   
     <title>Document</title>
-    <style>
-        h1 {
-            background-color: lightcoral;
-            border: 5px solid black;
-            text-align: center;
-        }
-        body {
-            background-color: lightseagreen;
-        }
-    </style>
 </head>
 <body>
     <form action="edit_user.php?id= <?php echo $_GET['id'] ?>" method="post">

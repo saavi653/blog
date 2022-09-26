@@ -41,6 +41,7 @@
             <a href='view_user.php' class="link">view user</a><br>
             <a href='create_sa.php' class="link">create sub-admin</a><br>
             <a href='view_sa1.php' class="link">view sub-admin</a><br>
+            <a href='admin_logout.php' class="link">logout</a><br>
     </section></section>   
 </body>
 </html>

@@ -2,33 +2,32 @@
 session_start();
 class user 
 {
+    public $obj;
+    function __construct()
+    {
+        include('../admin/conn.php');
+        $obj=new connection();
+        $this->obj=$obj->conn(); 
+    }
     function create_user($data)
     {
-        include('conn.php');
-        $obj=new conn();
-        $obj=$obj->conn();
         $email=$data['email'];
         $password=$data['password'];
-        $obj->exec("insert into user(email,password) values('$email','$password')"); 
+        $this->obj->exec("insert into user(email,password) values('$email','$password')"); 
         echo"<b>USER CREATED SUCCESSFULLY</b>"; 
     }
     function view_user()
-    {
-        include('conn.php');
-        $obj=new conn();
-        $obj=$obj->conn();
-        $data=$obj->query('select *from user');
+    { 
+        $data=$this->obj->query('select *from user');
         $fetch=$data->fetchall(pdo::FETCH_ASSOC);
         return $fetch;
     }  
     function user_delete($id)
     {
-        include('conn.php');
-        $obj=new conn();
-        $obj=$obj->conn(); 
+       
         if(!empty($id))
         {
-            $obj->query("delete from user where id=$id");
+            $this->obj->query("delete from user where id=$id");
             header('location:view_user.php');
         }
     }
@@ -37,10 +36,7 @@ class user
         $msg=$count=0;
         $email=$data['email'];
         $password=$data['password'];
-        include('../admin/conn.php');
-        $obj=new conn();
-        $obj=$obj->conn(); 
-        $data=$obj->query("select *from user where email='$email' and password='$password' ");
+        $data=$this->obj->query("select *from user where email='$email' and password='$password' ");
         $fetch=$data->fetchall(pdo::FETCH_ASSOC);
         if(!empty($fetch))
         {

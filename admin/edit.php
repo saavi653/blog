@@ -5,7 +5,9 @@ if (isset($_GET['id']))
 {
     $id = $_GET['id'];
 }
-$con = new pdo("mysql:host=localhost;dbname=blog;", "root", "");
+include('conn.php');
+$obj=new connection();
+$con=$obj->conn();
 $data = $con->query("select * from blogs where id='$id'");
 $record = $data->fetchall(pdo::FETCH_ASSOC);
 if (isset($_POST['submit'])) 
