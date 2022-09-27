@@ -7,33 +7,6 @@ $data = $obj->view_user();
 ?>
 <html>
 <link rel="stylesheet" type="text/css" href="style.css">
-<style>
-    table {
-        margin: 5px;
-        padding: 5px;
-        width: 80%;
-        border-radius: 20px;
-
-    }
-
-    tr,
-    td {
-        padding: 20px;
-        font-size: 20px;
-        border: 2px solid black;
-    }
-
-    a {
-        text-decoration: none;
-
-    }
-
-    th {
-        padding: 20px;
-        border: 2px solid black;
-        background: linear-gradient(to right, brown, lightcoral, pink, white);
-    }
-</style>
 <table cellspacing=0>
     <h1>USER'S DETAIL :</h1>
     <th>EMAIL</th>

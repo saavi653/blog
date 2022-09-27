@@ -6,21 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">   
     <title>Document</title>
-    <style>
-        div{
-            padding:50px;
-            border:20px solid black;
-            width:40%;
-            height:auto;
-            margin:auto;
-            background-color: lightcoral;
-        }
-        </style>    
 </head>
 <body>
     <h1>ADMIN PANEL </h1>
    <form action="login.php" method ="post">
-    <div>
+    <div class=outer>
     <label>EMAIL</label>
     <input type='email' name='email'/><br><br>
     <label> PASSWORD</label>

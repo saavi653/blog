@@ -5,7 +5,6 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Document</title>
 </head>
-
 <body>
     <form action="createb.php" method='post'>
         <h1>BLOG</h1>
@@ -21,7 +19,7 @@
         <input type="textbox" name="title" />
         <label>description</label>
         <textarea name="des" placeholder="type..."></textarea><br><br>
-        <input type=submit name=submit>
+        <input type=submit name=submit> 
     </form><br>
     <?php
     if (isset($_SESSION['admin_login'])) 

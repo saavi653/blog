@@ -11,52 +11,6 @@ if(isset($_SESSION['sub_a']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">  
     <title>Document</title>
-    <style>
-
-        .link {
-            border: 1px solid black;
-            color: black;
-            padding: 30px;
-            width: 100%;
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: bold;
-            background-color: lightcoral;
-        }
-
-        .first {
-            position: absolute;
-            top: 40;
-            left: 10%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .second {
-            position: absolute;
-            top: 40;
-            left: 40%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .third {
-            position: absolute;
-            top: 40;
-            left: 70%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .main {
-            position: relative;
-        }
-        span {
-            position: absolute;
-            top: 70%;
-            left: 40%;
-        }
-    </style>
 </head>
 <body>
 <h1>WELCOME SUB-ADMIN</h1>

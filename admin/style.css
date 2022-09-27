@@ -6,3 +6,78 @@ h1{
     background-color:lightcoral;
     border:5px solid black;
 }
+.outer{
+    padding:50px;
+    border:20px solid black;
+    width:40%;
+    height:auto;
+    margin:auto;
+    background-color: lightcoral;
+}
+.link {
+    border: 1px solid black;
+    color: black;
+    padding: 30px;
+    width: 100%;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: lightcoral;
+}
+
+.first {
+    position: absolute;
+    top: 40;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+.second {
+    position: absolute;
+    top: 40;
+    left: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.third {
+    position: absolute;
+    top: 40;
+    left: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    position: relative;
+}
+
+span {
+    position: absolute;
+    top: 70%;
+    left: 40%;
+}
+table 
+{
+    border: 2px solid black;
+    margin: 12px;
+    padding: 15px;
+    width: 80%;
+}
+tr,
+td 
+{
+    padding: 20px;
+    border: 2px solid black;
+}
+a {
+    text-decoration: none;
+
+}
+
+th {
+    padding: 20px;
+    border: 2px solid black;
+    background: linear-gradient(to right, brown, lightcoral, pink, white);
+}
