@@ -1,3 +1,8 @@
+<?php
+session_start();
+if(isset($_SESSION['sub_a']))
+{
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,41 +12,74 @@
     <link rel="stylesheet" type="text/css" href="style.css">  
     <title>Document</title>
     <style>
-        .container{
-            border-radius:20px ;
-            margin-top:20px;
-            width: 50%;
-            margin-left: 400px;
-        }
-        .mini
-        {
-            display:flex;
-            flex-direction: column;
-            margin-left: 30px;
-        }
-        .link{
-            border:2px solid black;
-            color:black;
-            padding:20px;
-            border-radius: 20px;
-            width: 50%;
+
+        .link {
+            border: 1px solid black;
+            color: black;
+            padding: 30px;
+            width: 100%;
             text-decoration: none;
             font-size: 20px;
             font-weight: bold;
             background-color: lightcoral;
         }
+
+        .first {
+            position: absolute;
+            top: 40;
+            left: 10%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .second {
+            position: absolute;
+            top: 40;
+            left: 40%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .third {
+            position: absolute;
+            top: 40;
+            left: 70%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main {
+            position: relative;
+        }
+        span {
+            position: absolute;
+            top: 70%;
+            left: 40%;
+        }
     </style>
 </head>
 <body>
 <h1>WELCOME SUB-ADMIN</h1>
-    <section class="container"><section class="mini">
+    <section class="main">
+        <section class="first">
             <a href='createb.php' class="link">create blog</a><br>
             <a href='view_blog.php' class="link">view blog</a><br>
+        </section>
+        <section class="second">
             <a href='create_user.php' class="link">create user</a><br>
             <a href='view_user.php' class="link">view user</a><br>
+        </section>
+        <section class="third">
             <a href='create_sa.php' class="link">create sub-admin</a><br>
             <a href='view_sa1.php' class="link">view sub-admin</a><br>
-            <a href='admin_logout.php' class="link">logout</a><br>
-    </section></section>   
+        </section>
+    </section> 
+    <span> <a href="admin_logout.php" class="link">logout </a></span>
+</body>
 </body>
 </html>
+<?php
+}else
+{
+    header('location:login.php');
+}

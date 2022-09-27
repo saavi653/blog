@@ -1,5 +1,7 @@
 <?php
 include('admin.php');
+if(isset($_SESSION['admin_login'])||isset($_SESSION['sub_a']))
+{
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,5 +43,9 @@ include('admin.php');
 if (isset($_POST['submit'])) {
     $obj = new subadmin();
     $obj->create_sa($_POST);
+}
+}else
+{
+    header('location:login.php');
 }
 ?>

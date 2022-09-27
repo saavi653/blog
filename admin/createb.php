@@ -1,5 +1,7 @@
 <?php
     include('admin.php');
+    if(isset($_SESSION['admin_login'])||isset($_SESSION['sub_a']))
+    {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,4 +43,8 @@ if (isset($_POST['submit']))
     $obj = new admin();
     $obj->create_blog($_POST);
 }
+    }else
+    {
+        header('location:login.php');
+    }
 ?>

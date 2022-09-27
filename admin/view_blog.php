@@ -1,5 +1,7 @@
 <?php
 include('admin.php');
+if(isset($_SESSION['admin_login'])||isset($_SESSION['sub_a']))
+{
 $obj = new admin();
 $record = $obj->view_blog($_POST);
 ?>
@@ -94,5 +96,9 @@ $record = $obj->view_blog($_POST);
         <?php } ?>
     </table>
 </body>
-
 </html>
+<?php
+}
+else{
+    header('location:login.php');
+}

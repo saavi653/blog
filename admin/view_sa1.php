@@ -1,5 +1,7 @@
 <?php
 include('admin.php');
+if(isset($_SESSION['sub_a']))
+{
 $obj = new subadmin();
 $data = $obj->view_sa();
 ?>
@@ -55,5 +57,10 @@ $data = $obj->view_sa();
         </tr>
 </table>
 <b><a href='subadmin.php'>SWITCH TO MAIN PAGE </a></b>
-
 </html>
+<?php
+}else
+    {
+        header('location:login.php');
+    }
+?>    

@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(isset($_SESSION['admin_login']))
+{?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,5 +77,8 @@
     </section>
     <span> <a href="admin_logout.php" class="link">logout </a></span>
 </body>
-
 </html>
+<?php 
+}else{
+    header('location:login.php');
+}

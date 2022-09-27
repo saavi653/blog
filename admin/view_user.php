@@ -1,6 +1,7 @@
 <?php
 include('../user/user.php');
-
+if(isset($_SESSION['admin_login'])||isset($_SESSION['sub_a']))
+{
 $obj = new user();
 $data = $obj->view_user();
 ?>
@@ -78,6 +79,10 @@ if (isset($_SESSION['admin_login'])) {
 } else {
 ?>
     <b><a href='subadmin.php'>SWITCH TO MAIN PAGE </a></b>
-<?php } ?>
-
+<?php }
+}else
+{
+  header('location:login.php');
+}
+?>
 </html>

@@ -1,5 +1,7 @@
 <?php
 include('../user/user.php');
+if(isset($_SESSION['admin_login'])||isset($_SESSION['sub_a']))
+{
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,5 +48,9 @@ if (isset($_POST['submit']))
     if ($error == 0) {
         $obj->create_user($_POST);
     }
+}
+}else
+{
+    header('location:login.php');
 }
 ?>

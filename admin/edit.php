@@ -5,9 +5,7 @@ if (isset($_GET['id']))
 {
     $id = $_GET['id'];
 }
-include('conn.php');
-$obj=new connection();
-$con=$obj->conn();
+$con=new pdo("mysql:host=localhost;dbname=blog;","root","");
 $data = $con->query("select * from blogs where id='$id'");
 $record = $data->fetchall(pdo::FETCH_ASSOC);
 if (isset($_POST['submit'])) 
@@ -30,18 +28,8 @@ if (isset($_POST['submit']))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">   
     <title>Document</title>
-    <style>
-        h1 {
-            background-color: lightseagreen;
-            border: 5px solid black;
-            text-align: center;
-        }
-
-        body {
-            background-color: lightpink;
-        }
-    </style>
 </head>
 <body>
     <form action="edit.php?id=<?php echo $_GET['id'] ?>" method="post">
