@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('../database/conn.php');
+include('../validation/validation.php');
 class admin 
 {
     public $obj;
@@ -37,14 +38,13 @@ class admin
     {  
         $email=$data['email'];
         $password=$data['password'];
-        if(!empty($email) && !empty($password))
+        $obj1=new validation();
+        $error=$obj1->validate_user("admin",$data);
+        if($error==0)
         {
             $this->obj->query("insert into admin(email,password,role)values('$email','$password',2)");
             echo"<h2>SUB ADMIN CREATED SUCCESSFULLY</h2>";
-        }else
-        {
-            echo"Error : fields are mandatory";
-        }    
+        }
     }
 }
 

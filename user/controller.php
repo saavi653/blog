@@ -11,6 +11,13 @@ class user
         $obj=new connection();
         $this->obj=$obj->conn();
     }
+    function create_user($data)
+    {
+        $email=$data['email'];
+        $password=$data['password'];
+        $this->obj->exec("insert into user(email,password) values('$email','$password')"); 
+        echo"<b>USER CREATED SUCCESSFULLY</b>";
+    }
     function user_login($data)
     {
         $email=$data['email'];

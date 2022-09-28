@@ -17,6 +17,7 @@
     <input type='password' name='password'/><br><br>
     <input type="submit" value="SUBMIT" name="submit"/>
     </div>
+    <br><center><b>create a new account? <a href="signup.php">signup</a></b></center>
     <br><center><b>login as a admin? <a href="../admin/login.php">login</a></b></center>
    </form>
 </body>
