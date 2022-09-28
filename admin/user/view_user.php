@@ -1,12 +1,12 @@
 <?php
-include('../user/user.php');
+include('controller.php');
 if(isset($_SESSION['admin_login'])||isset($_SESSION['sub_a']))
 {
-$obj = new user();
-$data = $obj->view_user();
+$obj = new controller();
+$data = $obj->view("user");
 ?>
 <html>
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
 <table cellspacing=0>
     <h1>USER'S DETAIL :</h1>
     <th>EMAIL</th>
@@ -47,11 +47,11 @@ $data = $obj->view_user();
 <?php
 if (isset($_SESSION['admin_login'])) {
 ?>
-    <b><a href='main.php'>SWITCH TO MAIN PAGE </a></b>
+    <b><a href='../main.php'>SWITCH TO MAIN PAGE </a></b>
 <?php
 } else {
 ?>
-    <b><a href='subadmin.php'>SWITCH TO MAIN PAGE </a></b>
+    <b><a href='../subadmin.php'>SWITCH TO MAIN PAGE </a></b>
 <?php }
 }else
 {

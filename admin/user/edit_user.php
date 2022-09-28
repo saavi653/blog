@@ -3,7 +3,7 @@ if (isset($_GET['id']))
 {
     $id = $_GET['id'];
 }
-include('conn.php');
+include('controller.php');
 $obj=new connection();
 $con=$obj->conn();
 $record = $con->query("select * from user where id ='$id'");
@@ -15,8 +15,8 @@ $data = $record->fetchall(pdo::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">   
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">   
+    <title>edit user</title>
 </head>
 <body>
     <form action="edit_user.php?id= <?php echo $_GET['id'] ?>" method="post">
@@ -32,11 +32,17 @@ $data = $record->fetchall(pdo::FETCH_ASSOC);
 </body>
 </html>
 <?php
+
 if (isset($_POST['submit'])) {
     $id = $_GET['id'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $obj=new validation();
+    $error=$obj->validate_user($_POST);
+    if($error==0)
+    {
     $con->exec("update user set email='$email' , password='$password' where id='$id'");
     header('location:view_user.php');
+    }
 }
 ?>

@@ -1,12 +1,13 @@
 <?php
+include('../common_controller/function.php');
 include('admin.php');
-if(isset($_SESSION['admin_login']))
+if(isset($_SESSION['admin_login']) || isset($_SESSION['sub_a']))
 {
-    $obj = new subadmin();
-    $data = $obj->view_sa();
+    $obj = new controller();
+    $data = $obj->view("admin");
     ?> 
     <html>
-    <link rel="stylesheet" type="text/css" href="style.css">      
+    <link rel="stylesheet" type="text/css" href="../css/style.css">      
     <title>
         view subadmin
     </title>   
@@ -14,8 +15,10 @@ if(isset($_SESSION['admin_login']))
         <h1>SUB-ADMIN'S DETAIL :</h1>
         <th>EMAIL</th>
         <th>PASSWORD</th>
-        <th>DELETE</th>
+        <?php if(isset($_SESSION['admin_login'])){?>
+            <th>DELETE</th>
         <?php
+        }
         foreach ($data as $key => $value) 
         {
             ?>
@@ -26,14 +29,28 @@ if(isset($_SESSION['admin_login']))
                 <td>
                     <?php echo $value['password'] ?>
                 </td>
-                <td>
-                    <?php echo '<a href="delete_sa.php?id='.$value['id'].'">DELETE</a>';?>
-                </td> 
-                <?php
+                <?php if(isset($_SESSION['admin_login']))
+                    { ?>
+                    <td>
+                       <?php 
+                            echo '<a href="delete_sa.php?id='.$value['id'].'">DELETE</a>';?>
+                    </td> 
+                        <?php
+                    }
         }        ?>
             </tr>
     </table>
-        <b ><a href='main.php'>SWITCH TO MAIN PAGE </a></b>
+    <?php
+    if (isset($_SESSION['admin_login'])) 
+    {
+    ?>
+        <b><a href='main.php'>SWITCH TO MAIN PAGE </a></b>
+    <?php
+    } else 
+    {
+    ?>
+        <b><a href='subadmin.php'>SWITCH TO MAIN PAGE </a></b>
+    <?php } ?>
     </html>
 <?php    
 }else

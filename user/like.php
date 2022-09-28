@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../admin/conn.php');
+include('../database/conn.php');
 if(isset($_GET['id']))
 {
     $id=$_GET['id'];

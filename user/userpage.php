@@ -1,8 +1,9 @@
 <?php
-include('../admin/admin.php');
-$obj=new admin($_POST);
-$record=$obj->view_blog();
-$obj1=new pdo("mysql:host=localhost;dbname=blog;","root","");
+include('controller.php');
+$obj=new controller();
+$record=$obj->view("blogs");
+$obj=new connection();
+$obj1=$obj->conn();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,8 +11,8 @@ $obj1=new pdo("mysql:host=localhost;dbname=blog;","root","");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../admin/style.css">     
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">     
+    <title>userpage</title>
 </head>
 <body>
     <table>

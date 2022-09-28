@@ -1,19 +1,17 @@
 <?php
-include('../user/user.php');
+include('controller.php');
 if(isset($_SESSION['admin_login'])||isset($_SESSION['sub_a']))
 {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <title>create user</title>
 </head>
-
 <body>
     <form action="create_user.php" method="post">
         <div>
@@ -28,7 +26,7 @@ if(isset($_SESSION['admin_login'])||isset($_SESSION['sub_a']))
         if (isset($_SESSION['admin_login'])) 
         {
         ?>
-            <b><a href='main.php'>SWITCH TO MAIN PAGE </a></b>
+            <b><a href='../main.php'>SWITCH TO MAIN PAGE </a></b>
         <?php
         } else 
         {
@@ -38,14 +36,14 @@ if(isset($_SESSION['admin_login'])||isset($_SESSION['sub_a']))
 
     </form>
 </body>
-
 </html>
 <?php
 if (isset($_POST['submit']))
 {
     $obj = new user();
-    $error = $obj->validation($_POST);
-    if ($error == 0) {
+    $error = $obj->validate_user($_POST);
+    if ($error == 0) 
+    {
         $obj->create_user($_POST);
     }
 }
