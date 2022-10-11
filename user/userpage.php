@@ -52,9 +52,9 @@ $obj1=$obj->conn();
             <td>
             <?php  
                 $id=$value['id'];
-                $data=$obj1->query("select sum(likes)from fun where blog_id=$id");
-                $li=$data->fetch();
-                echo $li[0];
+               $data=$obj1-> query("SELECT *,(select sum(likes))as likescount,(SELECT sum(dislikes)) as dislikescount from blogs b inner join fun f on (b.id=f.blog_id)where b.id=$id");
+              $data= $data->fetch(pdo::FETCH_ASSOC);
+               echo $data['likescount'];
             ?>
             </td>   
             <td>
@@ -62,10 +62,7 @@ $obj1=$obj->conn();
             </td>
             <td>
             <?php   
-                $id=$value['id'];
-                $data=$obj1->query("select sum(dislikes)from fun where blog_id=$id");
-                $li=$data->fetch();
-                echo $li[0];
+                echo $data['dislikescount'];
                 ?>
             </td>   
         </tr>  
